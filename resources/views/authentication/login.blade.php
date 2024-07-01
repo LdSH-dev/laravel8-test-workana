@@ -34,12 +34,11 @@
 <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="errorModalLabel"><i class="fas fa-exclamation-circle text-danger"></i> Erro</h5>
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="errorModalLabel">Erro</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="errorModalBody">
-            </div>
+            <div class="modal-body" id="errorModalBody"></div>
         </div>
     </div>
 </div>
@@ -48,12 +47,12 @@
 <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="successModalLabel"><i class="fas fa-check-circle text-success"></i> Sucesso</h5>
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title" id="successModalLabel">Sucesso</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Login bem-sucedido!</p>
+                <p>Login realizado com sucesso!</p>
             </div>
         </div>
     </div>
@@ -63,48 +62,62 @@
 @section('scripts')
 <script>
     $(document).ready(function() {
-        $('#loginForm').on('submit', function(e) {
-            e.preventDefault();
+        const loginForm = $('#loginForm');
+        const errorModal = $('#errorModal');
+        const successModal = $('#successModal');
+        const errorModalBody = $('#errorModalBody');
+        const forgotPasswordButton = $('#forgotPasswordButton');
+        const successRedirectDelay = 2000;
+
+        function handleLoginSuccess(response) {
+            localStorage.setItem('auth_token', response.access_token);
+            successModal.modal('show');
+            setTimeout(function() {
+                window.location.href = '{{ route('home') }}';
+            }, successRedirectDelay);
+        }
+
+        function handleLoginError(response) {
+            let errorMessages = '';
+            if (response.status === 422) {
+                let errors = response.responseJSON.errors;
+                errorMessages = '<ul>';
+                for (let field in errors) {
+                    if (errors.hasOwnProperty(field)) {
+                        errors[field].forEach(function(error) {
+                            errorMessages += '<li>' + error + '</li>';
+                        });
+                    }
+                }
+                errorMessages += '</ul>';
+            } else {
+                errorMessages = '<p>Credenciais incorretas!</p>';
+            }
+            errorModalBody.html(errorMessages);
+            errorModal.modal('show');
+        }
+
+        function submitLoginForm(event) {
+            event.preventDefault();
             $.ajax({
                 url: '{{ route('login') }}',
                 type: 'POST',
-                data: $(this).serialize(),
-                success: function(response) {
-                    localStorage.setItem('auth_token', response.access_token);
-                    $('#successModal').modal('show');
-                    setTimeout(function() {
-                        window.location.href = '{{ route('home') }}';
-                    }, 2000);
-                },
-                error: function(response) {
-                    if (response.status === 422) {
-                        let errors = response.responseJSON.errors;
-                        let errorMessages = '<ul>';
-                        for (let field in errors) {
-                            if (errors.hasOwnProperty(field)) {
-                                errors[field].forEach(function(error) {
-                                    errorMessages += '<li>' + error + '</li>';
-                                });
-                            }
-                        }
-                        errorMessages += '</ul>';
-                        $('#errorModalBody').html(errorMessages);
-                        $('#errorModal').modal('show');
-                    } else {
-                        $('#errorModalBody').html('<p>Credenciais incorretas!.</p>');
-                        $('#errorModal').modal('show');
-                    }
-                }
+                data: loginForm.serialize(),
+                success: handleLoginSuccess,
+                error: handleLoginError
             });
-        });
+        }
 
-        $('#forgotPasswordButton').on('click', function() {
+        function redirectToForgotPassword() {
             window.location.href = '{{ route('password.request') }}';
-        });
+        }
+
+        loginForm.on('submit', submitLoginForm);
+        forgotPasswordButton.on('click', redirectToForgotPassword);
 
         $('.btn-close').click(function() {
-            $('#errorModal').modal('hide');
-            $('#successModal').modal('hide');
+            errorModal.modal('hide');
+            successModal.modal('hide');
         });
     });
 </script>

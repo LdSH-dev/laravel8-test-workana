@@ -36,9 +36,9 @@
                                 <label for="zip" class="form-label">CEP</label>
                                 <input type="text" class="form-control" id="zip" name="zip" required>
                                 <div id="zipLoading" class="spinner-border spinner-border-sm text-primary" role="status" style="display:none;">
-                                    <span class="visually-hidden">Carregando...</span>
+                                    <span class="visually-hidden">Buscando...</span>
                                 </div>
-                                <div id="zipError" class="text-danger" style="display:none;">CEP não encontrado</div>
+                                <div id="zipError" class="text-danger" style="display:none;">CEP inválido</div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="address" class="form-label">Endereço</label>
@@ -90,7 +90,28 @@
 @section('scripts')
 <script>
 $(document).ready(function() {
-    $('#zip').mask('00000-000');
+    const zipInput = $('#zip');
+    const addressInput = $('#address');
+    const neighborhoodInput = $('#neighborhood');
+    const cityInput = $('#city');
+    const stateInput = $('#state');
+    const registerButton = $('#registerButton');
+    const zipLoading = $('#zipLoading');
+    const zipError = $('#zipError');
+    const modalMessage = $('#modalMessage');
+    const messageModal = $('#messageModal');
+
+    zipInput.mask('00000-000');
+
+    function validateForm() {
+        let isValid = true;
+        $('#registerForm input[required]').each(function() {
+            if ($(this).val() === '') {
+                isValid = false;
+            }
+        });
+        registerButton.attr('disabled', !isValid);
+    }
 
     function debounce(func, wait, immediate) {
         let timeout;
@@ -107,93 +128,87 @@ $(document).ready(function() {
         };
     }
 
-    function validateForm() {
-        let isValid = true;
-        $('#registerForm input[required]').each(function() {
-            if ($(this).val() === '') {
-                isValid = false;
-            }
-        });
-        $('#registerButton').attr('disabled', !isValid);
-    }
-
-    $('#registerForm input[required]').on('input', validateForm);
-
     const checkZipCode = debounce(function() {
-        const zip = $('#zip').val().replace(/\D/g, '');
+        const zip = zipInput.val().replace(/\D/g, '');
         if (zip.length === 8) {
-            $('#zipLoading').show();
-            $('#zipError').hide();
+            zipLoading.show();
+            zipError.hide();
 
             $.ajax({
                 url: '/api/lookup/' + zip,
                 type: 'GET',
                 success: function(response) {
-                    $('#zipLoading').hide();
+                    zipLoading.hide();
                     if (response) {
-                        $('#address').removeAttr('disabled');
-                        $('#neighborhood').removeAttr('disabled');
+                        addressInput.removeAttr('disabled');
+                        neighborhoodInput.removeAttr('disabled');
 
-                        $('#state').attr('disabled', true);
-                        $('#city').val(`${response.localidade}`);
-                        $('#state').val(`${response.uf}`);
+                        stateInput.attr('disabled', true);
+                        cityInput.val(response.localidade);
+                        stateInput.val(response.uf);
 
-                        $('#city').attr('disabled', true);
-                        $('#state').attr('disabled', true);
+                        cityInput.attr('disabled', true);
+                        stateInput.attr('disabled', true);
 
                         if (response.logradouro == null) {
-                            $('#address').val('');
-                            $('#neighborhood').val('');
+                            addressInput.val('');
+                            neighborhoodInput.val('');
                         } else {
-                            $('#address').val(`${response.logradouro}`);
-                            $('#neighborhood').val(`${response.bairro}`);
+                            addressInput.val(response.logradouro);
+                            neighborhoodInput.val(response.bairro);
                         }
 
                         validateForm();
                     } else {
-                        $('#address').val('');
-                        $('#neighborhood').val('');
-                        $('#city').val('');
-                        $('#state').val('');
-                        $('#zipError').show();
+                        clearAddressFields();
+                        zipError.show().text('CEP inválido');
                     }
                 },
                 error: function() {
-                    $('#zipLoading').hide();
-                    $('#zipError').show();
+                    zipLoading.hide();
+                    clearAddressFields();
+                    zipError.show().text('Erro ao buscar o CEP');
                 }
             });
         }
     }, 500);
 
-    $('#zip').on('input', checkZipCode);
+    function clearAddressFields() {
+        addressInput.val('');
+        neighborhoodInput.val('');
+        cityInput.val('');
+        stateInput.val('');
+    }
 
-    $('#registerForm').on('submit', function(e) {
+    function handleFormSubmit(e) {
         e.preventDefault();
-
-        $('#zip').unmask();
+        zipInput.unmask();
 
         $.ajax({
             url: '{{ route('register') }}',
             type: 'POST',
-            data: $(this).serialize(),
+            data: $('#registerForm').serialize(),
             success: function(response) {
-                $('#modalMessage').text(response.message);
-                $('#messageModal').modal('show');
+                modalMessage.text(response.message);
+                messageModal.modal('show');
             },
             error: function(response) {
                 let errorMessages = '';
                 $.each(response.responseJSON.errors, function(key, value) {
                     errorMessages += value[0] + '<br>';
                 });
-                $('#modalMessage').html(errorMessages);
-                $('#messageModal').modal('show');
+                modalMessage.html(errorMessages);
+                messageModal.modal('show');
             }
         });
-    });
+    }
+
+    zipInput.on('input', checkZipCode);
+    $('#registerForm').on('submit', handleFormSubmit);
+    $('#registerForm input[required]').on('input', validateForm);
 
     $('.btn-close').click(function() {
-        $('#messageModal').modal('hide');
+        messageModal.modal('hide');
     });
 });
 </script>
