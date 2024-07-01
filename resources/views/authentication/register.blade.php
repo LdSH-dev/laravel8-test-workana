@@ -126,7 +126,7 @@ $(document).ready(function() {
             $('#zipError').hide();
 
             $.ajax({
-                url: '/api/get-address/' + zip,
+                url: '/api/lookup/' + zip,
                 type: 'GET',
                 success: function(response) {
                     $('#zipLoading').hide();

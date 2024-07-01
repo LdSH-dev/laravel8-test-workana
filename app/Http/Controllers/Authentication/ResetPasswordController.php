@@ -15,12 +15,6 @@ class ResetPasswordController extends Controller {
         $this->passwordResetService = $passwordResetService;
     }
 
-    public function showResetForm(Request $request, $token = null) {
-        return view('authentication.reset')->with(
-            ['token' => $token, 'email' => $request->email]
-        );
-    }
-
     public function reset(ResetPasswordRequest $request) {
         $request->validate([
             'token' => 'required',
@@ -44,4 +38,12 @@ class ResetPasswordController extends Controller {
                 ->withErrors(['email' => 'Password reset failed.']);
         }
     }
+
+    public function showForm(Request $request, $token = null) {
+        return view('authentication.reset')->with(
+            ['email' => $request->email, 'token' => $token]
+        );
+    }
+
+
 }

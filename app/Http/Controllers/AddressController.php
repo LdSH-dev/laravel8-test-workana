@@ -18,7 +18,7 @@ class AddressController extends Controller {
         if ($address) {
             return response()->json($address);
         } else {
-            return response()->json(['error' => 'CEP não encontrado'], 404);
+            return response()->json(['error' => 'CEP não encontrado!'], 404);
         }
     }
 }

@@ -47,7 +47,7 @@
             e.preventDefault();
 
             $.ajax({
-                url: '{{ route('password.email') }}',
+                url: '{{ route('password.request.send') }}',
                 type: 'POST',
                 data: $(this).serialize(),
                 success: function(response) {

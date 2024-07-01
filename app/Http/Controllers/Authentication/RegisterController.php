@@ -21,6 +21,6 @@ class RegisterController extends Controller {
     public function register(RegisterRequest $request): JsonResponse {
         $user = $this->registrationService->register($request->all());
 
-        return response()->json(['message' => 'User registered successfully', 'user' => $user]);
+        return response()->json(['message' => 'Usuário cadastrado com sucesso!', 'user' => $user]);
     }
 }

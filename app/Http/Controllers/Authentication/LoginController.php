@@ -14,15 +14,15 @@ class LoginController extends Controller {
         $this->authService = $authService;
     }
 
-    public function showLoginForm() {
-        return view('authentication.login');
-    }
-
     public function login(LoginRequest $request): JsonResponse {
         return $this->authService->login($request->only('email', 'password'));
     }
 
     public function logout(): JsonResponse {
         return $this->authService->logout();
+    }
+
+    public function showForm() {
+        return view('authentication.login');
     }
 }
