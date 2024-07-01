@@ -1,0 +1,94 @@
+2024-06-30 14:15:00,043 INFO supervisord started with pid 1
+2024-06-30 14:15:01,045 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:15:01,047 INFO spawned: 'laravel-worker_00' with pid 7
+2024-06-30 14:15:02,757 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:15:02,758 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-30 14:15:05,268 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:15:08,272 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:15:08,272 INFO gave up: php-fpm entered FATAL state, too many start retries too quickly
+2024-06-30 14:16:58,876 WARN received SIGQUIT indicating exit request
+2024-06-30 14:16:58,876 INFO waiting for laravel-worker_00 to die
+2024-06-30 14:16:58,879 INFO stopped: laravel-worker_00 (terminated by SIGTERM)
+2024-06-30 14:17:04,253 INFO supervisord started with pid 1
+2024-06-30 14:17:05,255 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:17:05,257 INFO spawned: 'laravel-worker_00' with pid 7
+2024-06-30 14:17:06,939 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:17:06,939 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-30 14:17:08,941 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:17:12,445 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:17:12,446 INFO gave up: php-fpm entered FATAL state, too many start retries too quickly
+2024-06-30 14:44:59,916 WARN received SIGQUIT indicating exit request
+2024-06-30 14:44:59,917 INFO waiting for laravel-worker_00 to die
+2024-06-30 14:44:59,919 INFO stopped: laravel-worker_00 (terminated by SIGTERM)
+2024-06-30 14:45:02,373 INFO supervisord started with pid 14
+2024-06-30 14:45:03,375 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:45:03,377 INFO spawned: 'laravel-worker_00' with pid 15
+2024-06-30 14:45:05,114 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:45:05,115 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-30 14:45:07,116 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:45:10,118 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:45:10,118 INFO gave up: php-fpm entered FATAL state, too many start retries too quickly
+2024-06-30 14:46:02,856 INFO supervisord started with pid 21
+2024-06-30 14:46:03,858 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:46:03,860 INFO spawned: 'laravel-worker_00' with pid 22
+2024-06-30 14:46:05,561 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:46:05,561 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-30 14:46:07,563 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:46:10,567 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:46:10,567 INFO gave up: php-fpm entered FATAL state, too many start retries too quickly
+2024-06-30 14:57:38,018 INFO supervisord started with pid 21
+2024-06-30 14:57:39,020 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:57:39,022 INFO spawned: 'laravel-worker_00' with pid 22
+2024-06-30 14:57:40,708 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:57:40,708 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-30 14:57:42,711 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:57:46,210 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 14:57:46,211 INFO gave up: php-fpm entered FATAL state, too many start retries too quickly
+2024-06-30 15:05:47,084 INFO supervisord started with pid 21
+2024-06-30 15:05:48,086 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 15:05:48,088 INFO spawned: 'laravel-worker_00' with pid 22
+2024-06-30 15:05:49,761 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 15:05:49,762 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-30 15:05:51,765 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 15:05:54,769 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 15:05:54,769 INFO gave up: php-fpm entered FATAL state, too many start retries too quickly
+2024-06-30 15:23:31,744 INFO supervisord started with pid 21
+2024-06-30 15:23:32,765 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 15:23:32,767 INFO spawned: 'laravel-worker_00' with pid 22
+2024-06-30 15:23:34,454 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 15:23:34,454 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-30 15:23:36,457 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 15:23:40,456 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 15:23:40,456 INFO gave up: php-fpm entered FATAL state, too many start retries too quickly
+2024-06-30 22:30:10,736 INFO supervisord started with pid 21
+2024-06-30 22:30:11,738 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 22:30:11,739 INFO spawned: 'laravel-worker_00' with pid 22
+2024-06-30 22:30:13,338 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 22:30:13,338 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-30 22:30:15,840 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 22:30:18,841 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 22:30:18,842 INFO gave up: php-fpm entered FATAL state, too many start retries too quickly
+2024-06-30 22:44:47,488 INFO supervisord started with pid 21
+2024-06-30 22:44:48,489 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 22:44:48,491 INFO spawned: 'laravel-worker_00' with pid 22
+2024-06-30 22:44:50,062 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 22:44:50,062 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-30 22:44:52,065 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 22:44:55,069 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 22:44:55,069 INFO gave up: php-fpm entered FATAL state, too many start retries too quickly
+2024-06-30 22:46:56,391 INFO supervisord started with pid 21
+2024-06-30 22:46:57,393 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 22:46:57,394 INFO spawned: 'laravel-worker_00' with pid 22
+2024-06-30 22:46:59,008 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 22:46:59,009 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-30 22:47:01,010 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 22:47:04,014 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 22:47:04,014 INFO gave up: php-fpm entered FATAL state, too many start retries too quickly
+2024-06-30 23:51:44,615 INFO supervisord started with pid 21
+2024-06-30 23:51:45,616 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 23:51:45,618 INFO spawned: 'laravel-worker_00' with pid 22
+2024-06-30 23:51:47,241 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 23:51:47,242 INFO success: laravel-worker_00 entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2024-06-30 23:51:49,244 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 23:51:52,248 INFO spawnerr: can't find command '/usr/sbin/php-fpm7.4'
+2024-06-30 23:51:52,248 INFO gave up: php-fpm entered FATAL state, too many start retries too quickly

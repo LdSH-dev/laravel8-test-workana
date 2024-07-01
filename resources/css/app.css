@@ -1,0 +1,59 @@
+body {
+    background-color: #f8f9fa !important; /* Tom de cinza claro */
+    color: #343a40 !important; /* Cor do texto em cinza escuro */
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.container {
+    padding-top: 20px;
+}
+
+.modal-content {
+    background-color: #ffffff; /* Fundo branco para os modais */
+    border: 1px solid #dee2e6; /* Borda leve */
+    border-radius: 0.3rem; /* Cantos arredondados */
+}
+
+.form-control:focus {
+    border-color: #495057; /* Cor da borda ao focar no input */
+    box-shadow: none; /* Remove a sombra padrão do Bootstrap */
+}
+
+.btn-primary {
+    background-color: #495057;
+    border-color: #495057;
+}
+
+.btn-primary:disabled {
+    background-color: #6e6e6e;
+    border-color: #6e6e6e;
+}
+
+.btn-primary:hover {
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+.spinner-border {
+    margin-left: 10px;
+}
+
+.text-danger {
+    margin-top: 5px;
+}
+
+.modal-header {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.modal-footer {
+    border-top: 1px solid #dee2e6;
+}
