@@ -17,7 +17,7 @@
                                 <input type="text" class="form-control" id="name" name="name" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="email" class="form-label">Email</label>
+                                <label for="email" class="form-label">E-mail</label>
                                 <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label for="password_confirmation" class="form-label">Confirme a senha</label>
+                                <label for="password_confirmation" class="form-label">Digite a senha novamente</label>
                                 <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
                             </div>
                         </div>
